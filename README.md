@@ -1,0 +1,1 @@
+# CAP_PAT_Chap_7_Les_Partenaires_de_l_entreprise
