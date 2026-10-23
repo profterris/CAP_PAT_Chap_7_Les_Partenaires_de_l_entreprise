@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les partenaires de l'entreprise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap">
+<style>
+/* ── RESET & BASE ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Fiche d'exercices en thème clair : blocs = séances, cartes dépliables, corrections masquables */
+:root {
+  --bg:        #f4f6f9;
+  --surface:   #ffffff;
+  --card:      #ffffff;
+  --border:    #dfe3ea;
+  --border-hi: #b9c0ce;
+  --text:      #1d2230;
+  --text-dim:  #5c6476;
+  --accent:    #b97d00;
+  --accent-bg: #fff6df;
+  --green:     #1b8047;
+  --green-bg:  #ecf7f0;
+  --green-bd:  #c9e6d4;
+  --green-dk:  #12552f;
+  --red:       #c23b3b;
+  --blue:      #2d69ad;
+  --blue-bg:   #edf3fb;
+  --purple:    #6f45ad;
+  --font-head: 'Syne', 'Trebuchet MS', sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --radius:    10px;
+  color-scheme: light;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ── HEADER ──────────────────────────────────────────────── */
+.site-header {
+  background: linear-gradient(135deg, #ffffff 0%, #eef2f8 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 44px 20px 32px;
+  text-align: center;
+}
+.site-header .kicker {
+  display: inline-block;
+  background: var(--accent);
+  color: #ffffff;
+  font-family: var(--font-head);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 3px 12px;
+  border-radius: 3px;
+  margin-bottom: 18px;
+}
+.site-header h1 {
+  font-family: var(--font-head);
+  font-size: clamp(24px, 6vw, 38px);
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.site-header .sub {
+  color: var(--text-dim);
+  font-size: 14px;
+  font-weight: 400;
+  max-width: 540px;
+  margin: 0 auto 20px;
+}
+.legende {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 0 auto 22px;
+  font-size: 12.5px;
+  color: var(--text-dim);
+}
+
+/* ── NAV ANCRES ──────────────────────────────────────────── */
+.nav-anchors {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.nav-anchors a {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 14px;
+  text-decoration: none;
+  transition: border-color .15s, color .15s;
+}
+.nav-anchors a:hover, .nav-anchors a:focus-visible { border-color: var(--accent); color: var(--accent); }
+
+/* ── CONTENEUR PRINCIPAL ─────────────────────────────────── */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 36px 18px 80px;
+}
+
+/* ── TITRE DE BLOC ───────────────────────────────────────── */
+.bloc-titre {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 52px 0 6px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.bloc-titre:first-child { margin-top: 0; }
+.bloc-titre .icone { font-size: 26px; flex-shrink: 0; }
+.bloc-titre h2 {
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.3;
+  text-wrap: balance;
+}
+.bloc-titre h2 small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+/* ── MÉMO ────────────────────────────────────────────────── */
+.memo {
+  background: var(--green-bg);
+  border: 1px solid var(--green-bd);
+  border-left: 4px solid var(--green);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin: 16px 0 24px;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.memo .memo-titre {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+.memo code {
+  display: block;
+  background: #ffffff;
+  border: 1px solid var(--green-bd);
+  border-radius: 5px;
+  padding: 8px 12px;
+  color: var(--green-dk);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 13.5px;
+  margin: 5px 0;
+}
+.memo .note { color: var(--text-dim); font-size: 13px; margin-top: 8px; }
+
+/* ── CARTE EXERCICE ──────────────────────────────────────── */
+.exo-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 14px;
+  overflow: hidden;
+  transition: border-color .15s;
+}
+.exo-card:hover { border-color: var(--border-hi); }
+
+.exo-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+.exo-header::-webkit-details-marker { display: none; }
+.exo-header:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+.exo-num {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  min-width: 40px;
+}
+.badge {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 9px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.badge-1 { background: #e9f6ee; color: var(--green); border: 1px solid #bfe2cc; }
+.badge-2 { background: var(--accent-bg); color: #8a5d00; border: 1px solid #efd798; }
+.badge-3 { background: #fbeaea; color: var(--red); border: 1px solid #efc4c4; }
+.badge-exam { background: #f2ecfa; color: var(--purple); border: 1px solid #d9c9ef; }
+
+.exo-titre-txt {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  flex: 1 1 200px;
+  min-width: 0;
+}
+.chevron { color: var(--text-dim); font-size: 13px; flex-shrink: 0; transition: transform .2s; }
+details[open] .chevron { transform: rotate(180deg); }
+
+/* ── CORPS DE L'EXERCICE ─────────────────────────────────── */
+.exo-body { padding: 0 16px 20px; border-top: 1px solid var(--border); }
+
+.contexte {
+  background: var(--blue-bg);
+  border-left: 3px solid var(--blue);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 16px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.contexte strong { color: var(--text); }
+
+.table-wrap { overflow-x: auto; margin: 12px 0; }
+.tableau-donnees {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: var(--surface);
+}
+.tableau-donnees th {
+  background: #eef1f6;
+  color: var(--text-dim);
+  font-family: var(--font-head);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.tableau-donnees td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  vertical-align: top;
+}
+.tableau-donnees tr:last-child td { border-bottom: none; }
+.tableau-donnees td.num { font-weight: 700; color: var(--text); white-space: nowrap; }
+
+.questions { margin: 18px 0 0; }
+.question { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
+.question .q-num {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  background: var(--accent);
+  color: #ffffff;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 11px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+.question p { font-size: 14px; margin: 0; min-width: 0; }
+
+/* ── COUP DE POUCE ───────────────────────────────────────── */
+.ordre-grandeur {
+  background: var(--accent-bg);
+  border: 1px solid #efd798;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #6e4b00;
+  margin: 12px 0 0;
+}
+.ordre-grandeur::before { content: "💡 "; }
+
+/* ── BOUTON CORRECTION ───────────────────────────────────── */
+.btn-corrige {
+  background: var(--surface);
+  border: 1px solid var(--border-hi);
+  border-radius: 6px;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 9px 16px;
+  margin-top: 18px;
+  transition: all .15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-corrige:hover, .btn-corrige:focus-visible { border-color: var(--green); color: var(--green); }
+
+/* ── CORRECTION ──────────────────────────────────────────── */
+.correction {
+  display: none;
+  background: var(--green-bg);
+  border: 1px solid var(--green-bd);
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.correction.visible { display: block; }
+.correction .corr-etape {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--green-bd);
+}
+.correction .corr-etape:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.correction .c-num {
+  display: inline-block;
+  background: var(--green);
+  color: #ffffff;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 10px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 18px;
+  margin-right: 6px;
+}
+.correction code {
+  display: block;
+  background: #ffffff;
+  border: 1px solid var(--green-bd);
+  border-radius: 4px;
+  padding: 6px 12px;
+  color: var(--green-dk);
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  margin: 5px 0;
+}
+.correction .res { font-family: var(--font-head); font-weight: 700; color: var(--text); }
+.correction .conclu { margin-top: 8px; font-size: 13.5px; color: #2c6244; font-style: italic; }
+.correction .tableau-corr { width: 100%; border-collapse: collapse; font-size: 13px; margin: 8px 0; background: #ffffff; }
+.correction .tableau-corr th {
+  background: #dff0e6;
+  color: var(--green-dk);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  text-align: left;
+}
+.correction .tableau-corr td { padding: 6px 10px; border-bottom: 1px solid var(--green-bd); color: #24402f; vertical-align: top; }
+.correction .tableau-corr td.val { font-weight: 700; color: var(--green); }
+
+/* ── SÉPARATEUR ──────────────────────────────────────────── */
+hr.section-sep { border: none; border-top: 1px solid var(--border); margin: 54px 0 0; }
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 20px;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 12px;
+  background: var(--surface);
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 520px) {
+  .exo-titre-txt { font-size: 13.5px; }
+  .contexte { font-size: 13.5px; }
+  .tableau-donnees { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="kicker">🧁 Gestion appliquée – CAP pâtissier</div>
+  <h1>Les partenaires<br>de l'entreprise</h1>
+  <p class="sub">Chapitre 7. 18 exercices en 5 séances, avec la pâtisserie Aux Douceurs de Margot, à Toulouse. Ouvre un exercice, réponds sur ton cahier ou dans ton manuel, puis vérifie avec la correction.</p>
+  <div class="legende">
+    <span class="badge badge-1">⬆ décollage</span> je découvre
+    <span class="badge badge-2">◆ intermédiaire</span> j'applique
+    <span class="badge badge-exam">★ examen</span> je m'entraîne
+  </div>
+  <nav class="nav-anchors">
+    <a href="#inspection">1 · L'inspection du travail</a>
+    <a href="#chambres">2 · Chambres et collectivités</a>
+    <a href="#organisations">3 · Organisations professionnelles</a>
+    <a href="#economiques">4 · Partenaires économiques</a>
+    <a href="#examen">5 · Sujets type examen</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ══════════════════════════════════════════════════════════
+     BLOC 1 – L'INSPECTION DU TRAVAIL (séance 1)
+══════════════════════════════════════════════════════════ -->
+<div class="bloc-titre" id="inspection">
+  <span class="icone">🕵️</span>
+  <h2><small>Séance 1 · 1 h</small>Bloc 1 – L'inspection du travail</h2>
+</div>
+
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>Partenaires institutionnels = l'État (inspection du travail), les collectivités territoriales, les organisations professionnelles et les chambres consulaires. Ils conseillent et aident l'entrepreneur.</code>
+  <code>Inspection du travail = elle vérifie que le Code du travail est respecté. Elle est assurée par les inspecteurs et les contrôleurs du travail.</code>
+  <code>4 missions : contrôler · conseiller · concilier · décider.</code>
+  <code>Sanctions, de la plus légère à la plus lourde : observation → procès-verbal (si infraction au Code pénal) → fermeture temporaire de l'établissement.</code>
+  <p class="note">Manuel p. 43 et 44 : texte d'introduction, document 1 et exercice 1.</p>
+</div>
+
+<!-- EX 1 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 1</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Une visite surprise au laboratoire</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Mardi, 7 h. Hugo, apprenti chez <strong>Aux Douceurs de Margot</strong>, fait le tour de pâte feuilletée. Une femme entre : « bonjour, inspection du travail ». Hugo panique : « c'est la police ? ».
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Lis le document 1 (manuel p. 44). Quel est l'objectif de l'inspection du travail ?</p></div>
+      <div class="question"><span class="q-num">2</span><p>Qui est chargé de contrôler l'application du droit du travail ?</p></div>
+      <div class="question"><span class="q-num">3</span><p>Recopie ta réponse dans l'exercice 1 a et 1 b du manuel.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> le document parle de deux « corps » de métiers. Cherche les mots qui finissent par « -eurs du travail ».</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span> Objectif :
+        <code>S'assurer que le Code du travail est bien respecté dans l'entreprise.</code>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">2</span>
+        <code>Les inspecteurs du travail et les contrôleurs du travail.</code>
+        <p class="conclu">Ce n'est pas la police : c'est un service de l'État qui protège les droits des salariés, et donc ceux d'Hugo.</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 2 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 2</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Les 4 missions de l'inspection</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      L'inspectrice reste une heure chez Margot. Voici ce qu'elle fait :<br>
+      <strong>A.</strong> Elle vérifie les horaires de travail d'Hugo.<br>
+      <strong>B.</strong> Elle explique à Margot une règle sur le temps de pause.<br>
+      <strong>C.</strong> Inès, ouvrière pâtissière, et Margot ne sont pas d'accord sur des heures. L'inspectrice les aide à trouver une solution.
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Cite les 4 missions de l'inspection du travail (exercice 1 c du manuel).</p></div>
+      <div class="question"><span class="q-num">2</span><p>Associe chaque action A, B et C à une mission.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> les 4 missions sont des verbes qui finissent tous par « -er ». Deux commencent par « con- ».</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span>
+        <code>Contrôler · conseiller · concilier · décider</code>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">2</span>
+        <table class="tableau-corr">
+          <tr><th>Action</th><th>Mission</th></tr>
+          <tr><td>A. Vérifier les horaires</td><td class="val">Contrôler</td></tr>
+          <tr><td>B. Expliquer une règle</td><td class="val">Conseiller</td></tr>
+          <tr><td>C. Aider à trouver un accord</td><td class="val">Concilier</td></tr>
+        </table>
+        <p class="conclu">Concilier = aider deux personnes en désaccord à s'entendre.</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 3 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 3</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Vrai ou faux : les pouvoirs de l'inspecteur</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Après la visite, Karim, le vendeur, raconte n'importe quoi à la boutique. Aide-le à dire vrai.
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>« L'inspecteur doit prévenir Margot avant de venir. » Vrai ou faux ?</p></div>
+      <div class="question"><span class="q-num">2</span><p>« Il a le droit de poser des questions à Hugo et à Inès. » Vrai ou faux ?</p></div>
+      <div class="question"><span class="q-num">3</span><p>« Il peut prendre un échantillon du produit de nettoyage pour l'analyser. » Vrai ou faux ?</p></div>
+      <div class="question"><span class="q-num">4</span><p>« Il peut seulement regarder le planning, pas les autres documents. » Vrai ou faux ?</p></div>
+      <div class="question"><span class="q-num">5</span><p>Complète l'exercice 1 d du manuel avec les 5 pouvoirs.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> l'inspecteur a beaucoup de pouvoirs. Méfie-toi des mots « doit prévenir » et « seulement ».</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <span class="res">Faux.</span> Il peut entrer n'importe quand et sans prévenir.</div>
+      <div class="corr-etape"><span class="c-num">2</span> <span class="res">Vrai.</span> Il peut interroger les salariés.</div>
+      <div class="corr-etape"><span class="c-num">3</span> <span class="res">Vrai.</span> Il peut prélever des échantillons de matériaux ou de produits.</div>
+      <div class="corr-etape"><span class="c-num">4</span> <span class="res">Faux.</span> Il peut demander n'importe quels documents.</div>
+      <div class="corr-etape">
+        <span class="c-num">5</span> Les 5 pouvoirs :
+        <code>Entrer n'importe quand et sans prévenir · interroger les salariés · prélever des échantillons · contrôler l'identité des travailleurs · demander n'importe quels documents</code>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 4 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 4</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Sanctions et congés d'Hugo</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Dans une autre pâtisserie du quartier, l'inspectrice a constaté plusieurs problèmes. De son côté, Hugo se demande combien de jours de congés il a le droit de prendre.
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Classe les sanctions de la moins importante à la plus importante : fermeture temporaire de l'établissement · observation · procès-verbal.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Dans quel cas l'inspecteur dresse-t-il un procès-verbal ?</p></div>
+      <div class="question"><span class="q-num">3</span><p>Hugo veut contacter l'inspection du travail. Où trouve-t-il ses coordonnées ?</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> pour la question 3, Hugo n'a pas besoin de sortir de la pâtisserie.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span>
+        <code>Observation → procès-verbal → fermeture temporaire de l'établissement</code>
+      </div>
+      <div class="corr-etape"><span class="c-num">2</span> <span class="res">En cas d'infraction au Code pénal.</span></div>
+      <div class="corr-etape">
+        <span class="c-num">3</span> <span class="res">Le contact de l'inspection du travail doit être affiché par l'employeur dans l'entreprise.</span>
+        <p class="conclu">Réponses à reporter dans l'exercice 1 e et 1 f du manuel (p. 44).</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+<hr class="section-sep">
+
+<!-- ══════════════════════════════════════════════════════════
+     BLOC 2 – CHAMBRES CONSULAIRES ET COLLECTIVITÉS (séance 2)
+══════════════════════════════════════════════════════════ -->
+<div class="bloc-titre" id="chambres" style="margin-top:40px">
+  <span class="icone">🏛️</span>
+  <h2><small>Séance 2 · 1 h</small>Bloc 2 – Chambres consulaires et collectivités territoriales</h2>
+</div>
+
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>CCI (chambre de commerce et d'industrie) = commerçants et industriels.</code>
+  <code>CMA (chambre de métiers et de l'artisanat) = artisans. Une pâtisserie artisanale dépend de la CMA.</code>
+  <code>Chambre d'agriculture = agriculteurs.</code>
+  <code>Rôles des chambres : aider à créer ou transmettre une entreprise · aider à développer l'activité · soutenir le développement économique local.</code>
+  <code>Collectivités territoriales = la région, le département, la commune.</code>
+  <p class="note">Manuel p. 45 à 47 : documents 2 à 5, exercices 2 et 3.</p>
+</div>
+
+<!-- EX 5 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 5</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">À chacun sa chambre</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Margot travaille avec plusieurs entreprises. Chacune dépend d'une chambre consulaire.
+    </div>
+    <div class="table-wrap">
+      <table class="tableau-donnees">
+        <tr><th>Entreprise</th><th>Activité</th></tr>
+        <tr><td>Aux Douceurs de Margot</td><td>Pâtisserie artisanale</td></tr>
+        <tr><td>La ferme des Coteaux</td><td>Producteur de framboises, fournisseur de Margot</td></tr>
+        <tr><td>Le supermarché du quartier</td><td>Commerce alimentaire</td></tr>
+        <tr><td>Biscuits du Sud</td><td>Usine de biscuits</td></tr>
+      </table>
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Pour chaque entreprise, indique la chambre consulaire : CCI, CMA ou chambre d'agriculture.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Complète la ligne « publics visés » de l'exercice 2 du manuel (p. 45).</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> une usine fabrique en grande quantité : c'est de l'industrie, pas de l'artisanat.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span>
+        <table class="tableau-corr">
+          <tr><th>Entreprise</th><th>Chambre</th></tr>
+          <tr><td>Aux Douceurs de Margot</td><td class="val">CMA</td></tr>
+          <tr><td>La ferme des Coteaux</td><td class="val">Chambre d'agriculture</td></tr>
+          <tr><td>Le supermarché du quartier</td><td class="val">CCI</td></tr>
+          <tr><td>Biscuits du Sud</td><td class="val">CCI</td></tr>
+        </table>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">2</span>
+        <code>CCI : commerçants et industriels · CMA : artisans · chambre d'agriculture : agriculteurs</code>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 6 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 6</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Margot ouvre une 2e boutique</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Les affaires marchent bien. Margot veut ouvrir une deuxième boutique à Blagnac. Elle ne sait pas par où commencer.
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Quelle chambre consulaire Margot doit-elle contacter ?</p></div>
+      <div class="question"><span class="q-num">2</span><p>Relis le document 2. Cite 3 services que cette chambre peut lui proposer.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Qui dirige les chambres consulaires ? Pourquoi est-ce un avantage pour Margot ?</p></div>
+      <div class="question"><span class="q-num">4</span><p>Complète la ligne « rôles principaux » de l'exercice 2 du manuel.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> dans le document 2, cherche les « centres de formalités », les « documents prévisionnels » et les « aides et subventions ».</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <span class="res">La CMA, car Margot est artisane.</span></div>
+      <div class="corr-etape">
+        <span class="c-num">2</span> Exemples de services :
+        <code>Le centre de formalités des entreprises (inscriptions, modifications) · l'aide à l'élaboration des documents prévisionnels · l'accompagnement dans la recherche d'aides et de subventions</code>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">3</span> Des membres élus par et parmi leurs pairs.
+        <p class="conclu">Ces élus viennent de l'économie locale : ils connaissent les besoins des entrepreneurs et peuvent répondre vite.</p>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">4</span>
+        <code>Aide à la création ou à la transmission d'entreprises · aide au développement des activités · soutien au développement économique local</code>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 7 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 7</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Région, département, commune : qui fait quoi ?</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      La pâtisserie de Margot est à Toulouse. Elle dépend de 3 collectivités : la région Occitanie, le département de la Haute-Garonne et la commune de Toulouse.
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Lis les documents 3, 4 et 5 (manuel p. 46 et 47). Complète l'exercice 3 du manuel : nom de chaque collectivité et ses actions.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Quelle collectivité est la seule compétente pour définir les aides générales aux entreprises (subventions, prêts, avances remboursables) ?</p></div>
+      <div class="question"><span class="q-num">3</span><p>Cite 2 aides que la commune peut apporter directement à une entreprise.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> le logo Occitanie = la région, le logo HG = le département, la mairie = la commune.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span>
+        <table class="tableau-corr">
+          <tr><th>Collectivité</th><th>Actions</th></tr>
+          <tr><td class="val">Conseil régional (Occitanie)</td><td>Soutien à l'internationalisation · aide à l'investissement immobilier · aide à l'innovation · aide aux entreprises en difficulté · aide à la création ou au développement des activités économiques</td></tr>
+          <tr><td class="val">Conseil départemental (Haute-Garonne)</td><td>Chef de file pour l'action sociale, le développement social, la lutte contre la précarité énergétique, l'autonomie des personnes et la solidarité des territoires</td></tr>
+          <tr><td class="val">Commune (Toulouse)</td><td>Aide à l'immobilier d'entreprise · aide à la création ou à l'extension d'activités économiques · aide aux entreprises en difficulté</td></tr>
+        </table>
+        <p class="conclu">Attention : le corrigé du manuel donne au département l'innovation et l'internationalisation. Or le document 3 attribue ces domaines à la région. Ici, la correction suit le document 3.</p>
+      </div>
+      <div class="corr-etape"><span class="c-num">2</span> <span class="res">La région (document 4).</span></div>
+      <div class="corr-etape">
+        <span class="c-num">3</span> Au choix (document 5) :
+        <code>Aide à l'immobilier d'entreprise · aide au maintien du dernier commerce · garantie d'emprunt · participation au capital des sociétés sous conditions</code>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 8 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 8</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Quatre projets, quatre interlocuteurs</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Margot a plusieurs idées pour l'avenir. Elle te demande qui contacter.
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Elle veut reprendre la dernière boulangerie-pâtisserie d'un petit village, qui va fermer.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Elle veut vendre ses macarons en Espagne.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Elle a besoin qu'une collectivité garantisse son emprunt à la banque.</p></div>
+      <div class="question"><span class="q-num">4</span><p>Elle veut faire les formalités d'inscription de sa nouvelle boutique.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> pour chaque réponse, nomme l'interlocuteur et justifie avec un mot du document.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <span class="res">La commune</span> : aide au maintien du dernier commerce (document 5).</div>
+      <div class="corr-etape"><span class="c-num">2</span> <span class="res">La région</span> : soutien à l'internationalisation des entreprises (documents 3 et 4).</div>
+      <div class="corr-etape"><span class="c-num">3</span> <span class="res">La commune</span> : garantie d'emprunt (document 5).</div>
+      <div class="corr-etape">
+        <span class="c-num">4</span> <span class="res">La CMA</span> : son centre de formalités des entreprises (document 2).
+        <p class="conclu">Un bon réflexe : chambre consulaire pour les démarches, collectivité pour les aides.</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+<hr class="section-sep">
+
+<!-- ══════════════════════════════════════════════════════════
+     BLOC 3 – ORGANISATIONS PROFESSIONNELLES (séance 3)
+══════════════════════════════════════════════════════════ -->
+<div class="bloc-titre" id="organisations" style="margin-top:40px">
+  <span class="icone">🤝</span>
+  <h2><small>Séance 3 · 1 h</small>Bloc 3 – Les organisations professionnelles</h2>
+</div>
+
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>2 types : le regroupement de salariés (syndicat) et le regroupement d'employeurs (syndicats, fédérations, unions, confédérations…).</code>
+  <code>Rôles : défendre les intérêts collectifs · représenter les adhérents · offrir des services (conseils, formations, informations) · négocier entre elles (conventions collectives).</code>
+  <code>Organisations patronales : MEDEF, CPME, U2P. Organisations salariales : CFDT, CGT, FO, CFTC, CFE-CGC.</code>
+  <code>CSE (comité social et économique) : obligatoire depuis le 1er janvier 2020 dans les entreprises d'au moins 11 salariés.</code>
+  <p class="note">Manuel p. 48 à 50 : schéma des 2 types, documents 6 et 7, exercices 4 à 9, encadré « les principales organisations professionnelles ».</p>
+</div>
+
+<!-- EX 9 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 9</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Le tri des sigles</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Sur un salon professionnel, Hugo ramasse des prospectus avec des sigles : <strong>CFDT · MEDEF · CGT · U2P · FO · CPME · CFTC · CNBPF · CFE-CGC</strong>.
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Trace 2 colonnes sur ton cahier : « employeurs » et « salariés ». Range chaque sigle.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Margot est cheffe d'entreprise. Dans quelle colonne cherche-t-elle son organisation ? Et Inès, salariée ?</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> utilise l'encadré de la page 50 du manuel. La CNBPF est présentée dans le document 6.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span>
+        <table class="tableau-corr">
+          <tr><th>Employeurs (patronales)</th><th>Salariés (salariales)</th></tr>
+          <tr><td class="val">MEDEF · CPME · U2P · CNBPF</td><td class="val">CFDT · CGT · FO · CFTC · CFE-CGC</td></tr>
+        </table>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">2</span> Margot : colonne employeurs. Inès : colonne salariés.
+        <p class="conclu">Les deux types d'organisations négocient ensemble, par exemple les conventions collectives.</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 10 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 10</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">La CNBPF, l'organisation de Margot</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Margot adhère à l'organisation des boulangers-pâtissiers. Hugo lit le document 6 (manuel p. 48).
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Écris le nom complet de cette organisation (exercice 4).</p></div>
+      <div class="question"><span class="q-num">2</span><p>Qui représente-t-elle : les salariés ou les chefs d'entreprise (exercice 5) ?</p></div>
+      <div class="question"><span class="q-num">3</span><p>Cite 3 missions de cette organisation (exercice 6).</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> pour la question 3, relis le 4e et le 5e paragraphe du document 6.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <span class="res">La Confédération nationale de la boulangerie et boulangerie-pâtisserie française (CNBPF).</span></div>
+      <div class="corr-etape"><span class="c-num">2</span> <span class="res">Les chefs d'entreprise.</span></div>
+      <div class="corr-etape">
+        <span class="c-num">3</span>
+        <code>Aider et faciliter la vie quotidienne des boulangers-pâtissiers</code>
+        <code>Apporter son appui aux groupements professionnels dans les litiges où l'intérêt de la profession l'exige</code>
+        <code>Favoriser les rencontres entre professionnels, pouvoirs publics et autres partenaires</code>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 11 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 11</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Inès a une question sur ses droits</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Inès, ouvrière pâtissière, veut connaître le contenu des accords professionnels qui concernent son métier. Elle trouve le document 7 (manuel p. 49).
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Quelle organisation est présentée ? Qui représente-t-elle (exercices 7 et 8) ?</p></div>
+      <div class="question"><span class="q-num">2</span><p>Surligne dans le document 7 les missions de cette organisation (exercice 9).</p></div>
+      <div class="question"><span class="q-num">3</span><p>Combien de salariés compte le métier en France, d'après le document ?</p></div>
+      <div class="question"><span class="q-num">4</span><p>Où cette organisation représente-t-elle Inès ? Explique en une phrase pourquoi c'est utile pour elle.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> cherche les verbes d'action : « négocie », « défend », « représente », « renseigner ».</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <span class="res">La CFDT (Confédération française démocratique du travail). Elle représente les salariés.</span></div>
+      <div class="corr-etape">
+        <span class="c-num">2</span> Passages à surligner :
+        <code>Elle négocie des accords et défend vos intérêts.</code>
+        <code>Elle vous représente dans les commissions régionales dédiées à votre profession.</code>
+        <code>Elles peuvent vous renseigner sur le contenu des accords professionnels qui vous concernent.</code>
+      </div>
+      <div class="corr-etape"><span class="c-num">3</span> <span class="res">100 000 salariés.</span></div>
+      <div class="corr-etape">
+        <span class="c-num">4</span> Dans les commissions régionales : la CPRIA (commission paritaire régionale interprofessionnelle de l'artisanat) et la CPR-PL (commission paritaire régionale des professions libérales).
+        <p class="conclu">C'est utile car ces commissions renseignent Inès sur les accords qui s'appliquent à son métier.</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 12 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 12</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Faut-il un CSE chez Margot ?</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Aux Douceurs de Margot compte <strong>8 salariés</strong>. Son concurrent, la pâtisserie Le Fournil Rose, en compte <strong>14</strong>. Hugo entend parler du « CSE ».
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Que signifie le sigle CSE ?</p></div>
+      <div class="question"><span class="q-num">2</span><p>Margot doit-elle mettre en place un CSE ? Et Le Fournil Rose ? Justifie.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Quelles anciennes instances le CSE a-t-il remplacées ?</p></div>
+      <div class="question"><span class="q-num">4</span><p>Cite 2 rôles communs à toutes les organisations professionnelles.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> l'information est en bas de l'encadré de la page 50. Compare chaque effectif au seuil.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <span class="res">Comité social et économique.</span></div>
+      <div class="corr-etape">
+        <span class="c-num">2</span>
+        <code>Seuil : au moins 11 salariés, depuis le 1er janvier 2020.</code>
+        Margot : 8 &lt; 11 → <span class="res">pas d'obligation.</span><br>
+        Le Fournil Rose : 14 ≥ 11 → <span class="res">CSE obligatoire.</span>
+      </div>
+      <div class="corr-etape"><span class="c-num">3</span> Les délégués du personnel (DP), le comité d'entreprise (CE) et le comité d'hygiène, de sécurité et des conditions de travail (CHSCT).</div>
+      <div class="corr-etape">
+        <span class="c-num">4</span> Au choix :
+        <code>Défendre les intérêts collectifs · représenter les adhérents · offrir des services aux adhérents · négocier pour améliorer et faire respecter le Code du travail</code>
+      </div>
+    </div>
+  </div>
+</details>
+
+<hr class="section-sep">
+
+<!-- ══════════════════════════════════════════════════════════
+     BLOC 4 – PARTENAIRES ÉCONOMIQUES (séance 4)
+══════════════════════════════════════════════════════════ -->
+<div class="bloc-titre" id="economiques" style="margin-top:40px">
+  <span class="icone">🔄</span>
+  <h2><small>Séance 4 · 1 h</small>Bloc 4 – Les partenaires économiques</h2>
+</div>
+
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>État : reçoit les impôts et taxes · verse des aides et financements publics.</code>
+  <code>Ménages : ensemble des occupants d'un même logement (INSEE). Ils fournissent le travail, reçoivent des salaires, achètent des biens et services.</code>
+  <code>Banques : reçoivent l'épargne · accordent des prêts.</code>
+  <code>Reste du monde : l'entreprise achète à l'étranger (importations) et vend à l'étranger (exportations).</code>
+  <p class="note">Manuel p. 50 et 51 : texte « les partenaires économiques de l'entreprise » et exercice 10.</p>
+</div>
+
+<!-- EX 13 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 13</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Qui est qui ?</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Voici 4 définitions. Retrouve le partenaire économique correspondant : État, ménages, banques ou reste du monde.
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Il reçoit l'argent des ménages et des entreprises et leur accorde des crédits.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Il représente tous les pays avec lesquels l'entreprise fait du commerce.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Il reçoit des impôts et des taxes, et peut verser des aides.</p></div>
+      <div class="question"><span class="q-num">4</span><p>Il désigne les occupants d'un même logement, même sans lien de parenté.</p></div>
+      <div class="question"><span class="q-num">5</span><p>Hugo vit seul dans un studio. Forme-t-il un ménage ? Justifie.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> relis la définition INSEE du ménage, page 50.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <span class="res">Les banques.</span></div>
+      <div class="corr-etape"><span class="c-num">2</span> <span class="res">Le reste du monde.</span></div>
+      <div class="corr-etape"><span class="c-num">3</span> <span class="res">L'État.</span></div>
+      <div class="corr-etape"><span class="c-num">4</span> <span class="res">Les ménages.</span></div>
+      <div class="corr-etape">
+        <span class="c-num">5</span> <span class="res">Oui.</span> Un ménage peut être composé d'une seule personne.
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 14 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 14</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Hugo, Margot et le fraisier</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Hugo travaille chez Margot. À la fin du mois, il reçoit sa paie. Le dimanche, sa mère achète un fraisier chez Margot pour l'anniversaire de sa sœur.
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Que donne le ménage d'Hugo à l'entreprise quand Hugo travaille ?</p></div>
+      <div class="question"><span class="q-num">2</span><p>Que donne l'entreprise au ménage en échange ?</p></div>
+      <div class="question"><span class="q-num">3</span><p>L'achat du fraisier : flux du ménage vers l'entreprise, ou de l'entreprise vers le ménage ? Nomme les deux flux.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> entre ménages et entreprise, il y a 4 flèches dans le schéma de la page 51. Utilise les termes A, C, G et J.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <span class="res">Le travail (A)</span>, du ménage vers l'entreprise.</div>
+      <div class="corr-etape"><span class="c-num">2</span> <span class="res">Le salaire (G)</span>, de l'entreprise vers le ménage.</div>
+      <div class="corr-etape">
+        <span class="c-num">3</span>
+        <code>Achat de biens et services (C) : du ménage vers l'entreprise</code>
+        <code>Vente de biens et services (J) : de l'entreprise vers le ménage</code>
+        <p class="conclu">Un même échange se lit dans les deux sens : la cliente achète, Margot vend.</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 15 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 15</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Le schéma complet</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Ouvre ton manuel page 51. Le schéma relie l'entreprise à ses 4 partenaires économiques.
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Complète l'exercice 10 : place les lettres A à J dans les cases.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Recopie le tableau ci-dessous et complète le sens de chaque flux.</p></div>
+    </div>
+    <div class="table-wrap">
+      <table class="tableau-donnees">
+        <tr><th>Lettre</th><th>Flux</th><th>De… vers…</th></tr>
+        <tr><td class="num">B</td><td>Importations</td><td>?</td></tr>
+        <tr><td class="num">D</td><td>Épargne</td><td>?</td></tr>
+        <tr><td class="num">E</td><td>Exportations</td><td>?</td></tr>
+        <tr><td class="num">F</td><td>Prêts d'argent</td><td>?</td></tr>
+        <tr><td class="num">H</td><td>Aides et financements publics</td><td>?</td></tr>
+        <tr><td class="num">I</td><td>Impôts et taxes</td><td>?</td></tr>
+      </table>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> suis le bout de la flèche. Une importation entre dans l'entreprise, une exportation en sort.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span> Ménages ↔ entreprise : A, C (vers l'entreprise) · G, J (vers les ménages).
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">2</span>
+        <table class="tableau-corr">
+          <tr><th>Lettre</th><th>Flux</th><th>De… vers…</th></tr>
+          <tr><td>B</td><td>Importations</td><td class="val">Reste du monde → entreprise</td></tr>
+          <tr><td>D</td><td>Épargne</td><td class="val">Entreprise → banques</td></tr>
+          <tr><td>E</td><td>Exportations</td><td class="val">Entreprise → reste du monde</td></tr>
+          <tr><td>F</td><td>Prêts d'argent</td><td class="val">Banques → entreprise</td></tr>
+          <tr><td>H</td><td>Aides et financements publics</td><td class="val">État → entreprise</td></tr>
+          <tr><td>I</td><td>Impôts et taxes</td><td class="val">Entreprise → État</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 16 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 16</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Une semaine chez Margot</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Voici les opérations de la semaine. Pour chacune, indique le partenaire économique et la lettre du flux (A à J).
+    </div>
+    <div class="table-wrap">
+      <table class="tableau-donnees">
+        <tr><th>Jour</th><th>Opération</th></tr>
+        <tr><td class="num">Lundi</td><td>Margot achète de la vanille à un producteur de Madagascar.</td></tr>
+        <tr><td class="num">Mardi</td><td>La banque lui accorde 30 000 € pour un nouveau four.</td></tr>
+        <tr><td class="num">Mercredi</td><td>Elle livre 200 macarons à un hôtel de Barcelone.</td></tr>
+        <tr><td class="num">Jeudi</td><td>Elle paie ses impôts et taxes.</td></tr>
+        <tr><td class="num">Vendredi</td><td>Elle place une partie de ses bénéfices à la banque.</td></tr>
+        <tr><td class="num">Samedi</td><td>Elle reçoit une aide publique pour son projet.</td></tr>
+      </table>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> pose-toi 2 questions : avec qui ? Dans quel sens ?</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <table class="tableau-corr">
+        <tr><th>Jour</th><th>Partenaire</th><th>Flux</th></tr>
+        <tr><td>Lundi</td><td>Reste du monde</td><td class="val">B – importation</td></tr>
+        <tr><td>Mardi</td><td>Banques</td><td class="val">F – prêt d'argent</td></tr>
+        <tr><td>Mercredi</td><td>Reste du monde</td><td class="val">E – exportation</td></tr>
+        <tr><td>Jeudi</td><td>État</td><td class="val">I – impôts et taxes</td></tr>
+        <tr><td>Vendredi</td><td>Banques</td><td class="val">D – épargne</td></tr>
+        <tr><td>Samedi</td><td>État</td><td class="val">H – aides et financements publics</td></tr>
+      </table>
+      <p class="conclu">Les impôts et les taxes font partie des charges du pâtissier : ils pèsent sur le coût de production.</p>
+    </div>
+  </div>
+</details>
+
+<hr class="section-sep">
+
+<!-- ══════════════════════════════════════════════════════════
+     BLOC 5 – SUJETS TYPE EXAMEN (séance 5)
+══════════════════════════════════════════════════════════ -->
+<div class="bloc-titre" id="examen" style="margin-top:40px">
+  <span class="icone">🎓</span>
+  <h2><small>Séance 5 · 1 h</small>Bloc 5 – Sujets type examen</h2>
+</div>
+
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>Partenaires institutionnels : inspection du travail · chambres consulaires · collectivités territoriales · organisations professionnelles.</code>
+  <code>Partenaires économiques : État · ménages · banques · reste du monde.</code>
+  <code>Méthode : 1. je lis la situation · 2. je souligne les mots clés · 3. je réponds avec le vocabulaire du cours · 4. je justifie avec le document.</code>
+  <p class="note">Format proche de la partie écrite de l'épreuve EP2 (45 minutes), où un professeur de gestion appliquée fait partie de la commission.</p>
+</div>
+
+<!-- EX 17 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 17</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Sujet guidé : Margot reprend une pâtisserie (20 min)</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Margot reprend <strong>La Gourmandise</strong>, la dernière pâtisserie de Saint-Lys, un village de Haute-Garonne. L'ancien patron part à la retraite. L'entreprise compte 5 salariés. Margot doit faire les formalités, trouver un financement et rassurer l'équipe.
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Quelle chambre consulaire accompagne Margot pour cette reprise ? Cite 2 services qu'elle propose.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Quelle collectivité peut aider au maintien de ce dernier commerce ?</p></div>
+      <div class="question"><span class="q-num">3</span><p>Margot emprunte à la banque. Quel flux économique est concerné ? Dans quel sens ?</p></div>
+      <div class="question"><span class="q-num">4</span><p>Un salarié veut connaître ses droits. Cite 2 interlocuteurs possibles pour lui.</p></div>
+      <div class="question"><span class="q-num">5</span><p>Margot doit-elle mettre en place un CSE à La Gourmandise ? Justifie.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> « reprise » = transmission d'entreprise. Relis le mémo du bloc 2.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span> <span class="res">La CMA.</span>
+        <code>Aide à la transmission d'entreprise · centre de formalités des entreprises · aide aux documents prévisionnels · recherche d'aides et de subventions</code>
+      </div>
+      <div class="corr-etape"><span class="c-num">2</span> <span class="res">La commune de Saint-Lys</span> (aide au maintien du dernier commerce).</div>
+      <div class="corr-etape"><span class="c-num">3</span> <span class="res">Prêt d'argent (F)</span>, de la banque vers l'entreprise.</div>
+      <div class="corr-etape"><span class="c-num">4</span> <span class="res">L'inspection du travail</span> (ses coordonnées sont affichées dans l'entreprise) et <span class="res">une organisation salariale</span> (par exemple la CFDT).</div>
+      <div class="corr-etape">
+        <span class="c-num">5</span> <span class="res">Non</span> : 5 salariés, moins de 11.
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 18 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 18</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Sujet complet : le dossier de la pâtisserie Aux Douceurs de Margot (30 min)</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      <strong>Situation.</strong> Tu es apprenti(e) chez Aux Douceurs de Margot, pâtisserie artisanale de 8 salariés à Toulouse. Margot prépare une réunion d'équipe sur « l'entreprise et ses partenaires ». Elle te confie le dossier ci-dessous.<br><br>
+      <strong>Annexe 1.</strong> Ce mois-ci, Margot a reçu la visite d'un inspecteur du travail, qui a fait une observation sur le registre des horaires.<br>
+      <strong>Annexe 2.</strong> Elle veut vendre ses entremets à une épicerie fine de Bruxelles et cherche une aide à l'internationalisation.<br>
+      <strong>Annexe 3.</strong> Elle adhère à la CNBPF. Une salariée adhère à un syndicat de salariés.
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Classe ces partenaires en 2 familles, institutionnels ou économiques : inspection du travail · banque · CMA · clients · région Occitanie · CNBPF. (2 points)</p></div>
+      <div class="question"><span class="q-num">2</span><p>Annexe 1. Cite 2 missions de l'inspection du travail. L'observation est-elle la sanction la plus lourde ? Justifie. (3 points)</p></div>
+      <div class="question"><span class="q-num">3</span><p>Annexe 2. Quelle collectivité contacter ? Quel flux économique créera cette vente, et vers quel partenaire ? (3 points)</p></div>
+      <div class="question"><span class="q-num">4</span><p>Annexe 3. Qui représente la CNBPF ? Cite 2 organisations de salariés. Cite un sujet sur lequel ces deux types d'organisations négocient. (3 points)</p></div>
+      <div class="question"><span class="q-num">5</span><p>Margot paie des impôts et des taxes. À quel partenaire ? Que peut-il verser en retour à l'entreprise ? (2 points)</p></div>
+      <div class="question"><span class="q-num">6</span><p>En 3 lignes, explique à un nouveau salarié pourquoi l'entreprise ne peut pas fonctionner seule. (2 points)</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> barème sur 15 points. Lis toutes les questions avant de commencer et garde 5 minutes pour te relire.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span>
+        <table class="tableau-corr">
+          <tr><th>Institutionnels</th><th>Économiques</th></tr>
+          <tr><td class="val">Inspection du travail · CMA · région Occitanie · CNBPF</td><td class="val">Banque · clients (ménages)</td></tr>
+        </table>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">2</span> Missions au choix : contrôler, conseiller, concilier, décider.<br>
+        <span class="res">Non</span> : c'est la sanction la plus légère. Viennent ensuite le procès-verbal, puis la fermeture temporaire de l'établissement.
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">3</span> <span class="res">La région</span> (soutien à l'internationalisation).<br>
+        Flux : <span class="res">exportation (E)</span>, de l'entreprise vers le reste du monde.
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">4</span> La CNBPF représente <span class="res">les chefs d'entreprise</span> (boulangers-pâtissiers).<br>
+        Organisations de salariés au choix : CFDT, CGT, FO, CFTC, CFE-CGC.<br>
+        Sujet de négociation : <span class="res">les conventions collectives</span> (amélioration et respect du Code du travail).
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">5</span> À <span class="res">l'État</span>. En retour, il peut verser des <span class="res">aides et financements publics</span>.
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">6</span> Exemple de réponse :
+        <code>L'entreprise a besoin de salariés pour travailler, de clients pour vendre, de banques pour financer ses achats et de l'État et des collectivités pour être aidée. Des partenaires comme la CMA, l'inspection du travail ou les syndicats la conseillent et la contrôlent. Sans eux, elle ne pourrait ni produire ni se développer.</code>
+        <p class="conclu">Barème : 2 + 3 + 3 + 3 + 2 + 2 = 15 points.</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+</main>
+
+<footer class="site-footer">
+  CAP pâtissier – Gestion appliquée &nbsp;|&nbsp; Chapitre 7 : les partenaires de l'entreprise &nbsp;|&nbsp; 18 exercices progressifs
+</footer>
+
+<script>
+function toggleCorr(btn) {
+  const corr = btn.nextElementSibling;
+  const isVisible = corr.classList.contains('visible');
+  corr.classList.toggle('visible', !isVisible);
+  btn.textContent = isVisible ? '✅ Voir la correction' : '🔒 Masquer la correction';
+}
+</script>
+</body>
+</html>
